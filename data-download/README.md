@@ -13,17 +13,13 @@ This command-line tool is designed to download GNSS (Global Navigation Satellite
 
 ### Steps
 
-1. **Clone the repository:**
+1. **Navigate to the example directory:**
 
     ```bash
-    git clone https://github.com/ROB-GNSS/gnss.be-data-API-examples
+    cd data-download
     ```
 
-2. **Navigate to the project directory:**
-
-    ```bash
-    cd gnss.be-data-API-examples/data-download
-    ```
+2. **Install requirements:**
 
     ```bash
     pip install -r requirements.txt
