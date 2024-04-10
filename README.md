@@ -26,4 +26,4 @@ This command-line examples is designed to present the usage of the [gnss.be api]
 
 ## Examples
 
-1. [GNSS Data Retrieval Tool](https://github.com/ROB-GNSS/gnss.be-data-API-examples/data-download)
+1. [GNSS Data Retrieval Tool](https://github.com/ROB-GNSS/gnss.be-data-API-examples/tree/main/data-download)
