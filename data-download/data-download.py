@@ -13,7 +13,7 @@ def validate_repository(repository):
     return repository
 
 def validate_station_list(station_list):
-    identifiers = re.split(',|\s', station_list)
+    identifiers = re.split(r',|\s', station_list)
     if len(identifiers) < 1:
         raise argparse.ArgumentTypeError("Invalid station list. Provide at least one 9 char identifier separated by comma or space.")
     for identifier in identifiers:
@@ -44,7 +44,7 @@ def check_params():
     
     # Add arguments
     parser.add_argument("repository", type=validate_repository, help="Repository name. Available values: EPN, Belgium (e.g. EPN)")
-    parser.add_argument("stationList", type=validate_station_list, help="List of nine char identifiers separated by comma(e.g. BRUX00BEL,DENT00BEL)")
+    parser.add_argument("station_list", type=validate_station_list, help="List of nine char identifiers separated by comma(e.g. BRUX00BEL,DENT00BEL or \"BRUX00BEL DENT00BEL\")")
     parser.add_argument("start_date", type=validate_date, help="Start date in YYYY-MM-DD format (e.g. 2023-12-29)")
     parser.add_argument("end_date", type=validate_date, help="End date in YYYY-MM-DD format (e.g. 2023-12-30)")
     parser.add_argument("rinex_version", type=validate_rinex_version, help="RINEX version (latest, 2, 3, 4) (e.g. latest)")
@@ -56,7 +56,7 @@ def check_params():
     # Return parsed arguments as a dictionary
     return {
         "repository": args.repository,
-        "stationList": args.stationList,
+        "station_list": args.station_list,
         "start_date": args.start_date,
         "end_date": args.end_date,
         "rinex_version": args.rinex_version,
@@ -80,7 +80,7 @@ def make_api_request(repository, station_id, rinex_version, start_date, end_date
 
 if __name__ == "__main__":
     args = check_params()
-    for station_id in args['stationList']:
+    for station_id in args['station_list']:
         data_list = make_api_request(args['repository'], station_id, args['rinex_version'], args['start_date'], args['end_date'])
         for file in data_list:
             wget.download(file['url'], out=args['output_directory'])
