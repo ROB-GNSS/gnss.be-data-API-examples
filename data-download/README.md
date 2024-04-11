@@ -32,7 +32,7 @@ This command-line tool is designed to download GNSS (Global Navigation Satellite
 The tool accepts the following command-line arguments:
 
 - `repository`: Repository name (EPN or Belgium)
-- `stationList`: List of nine-character station identifiers separated by comma or space (e.g. BRUX00BEL,DENT00BEL)
+- `station_list`: List of nine-character station identifiers separated by comma or space (e.g. BRUX00BEL,DENT00BEL)
 - `start_date`: Start date in YYYY-MM-DD format
 - `end_date`: End date in YYYY-MM-DD format
 - `rinex_version`: RINEX version (latest, 2, 3, 4)
